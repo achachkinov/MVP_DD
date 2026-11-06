@@ -3,16 +3,15 @@ configuration:
   pageTitle: Quartz 5
   pageTitleSuffix: ""
   enableSPA: true
-  enablePopovers: true
+  enablePopovers: false
   analytics:
     provider: plausible
-  locale: en-US
+  locale: ru-RU
   baseUrl: later
   ignorePatterns:
     - private
     - templates
     - .obsidian
-    
   theme:
     fontOrigin: googleFonts
     cdnCaching: true
@@ -22,35 +21,35 @@ configuration:
       code: IBM Plex Mono
     colors:
       lightMode:
-        light: "#182533"         # Базовый фон темного Telegram
-        lightgray: "#203040"     # Цвет плашек, карточек и поиска
-        gray: "#6c7883"          # Второстепенный текст
-        darkgray: "#ceeedc"      # Основной текст
-        dark: "#ffffff"          # Заголовки
-        secondary: "#5288c1"     # Родной синий TG-цвет для ссылок и кнопок
-        tertiary: "#3d6a97"      # Цвет при наведении
-        highlight: "rgba(82, 136, 193, 0.15)"
+        light: "#ffffff"       # Чисто белый фон страниц
+        lightgray: "#f4f4f5"   # Светло-серые границы плиток
+        gray: "#71717a"        # Доступный для чтения серый 
+        darkgray: "#27272a"    # Почти черный цвет основного текста
+        dark: "#09090b"        # Жирные заголовки
+        secondary: "#2563eb"   # Яркий синий цвет ссылок и кнопок
+        tertiary: "#60a5fa"    
+        highlight: "rgba(37, 99, 235, 0.15)"
         textHighlight: "#b3aa0288"
-      darkMode:
-        light: "#182533"         # Базовый фон темного Telegram
-        lightgray: "#203040"     # Цвет плашек, карточек и поиска
-        gray: "#6c7883"          # Второстепенный текст
-        darkgray: "#ceeedc"      # Основной текст
-        dark: "#ffffff"          # Заголовки
-        secondary: "#5288c1"     # Родной синий TG-цвет для ссылок и кнопок
-        tertiary: "#3d6a97"      # Цвет при наведении
-        highlight: "rgba(82, 136, 193, 0.15)"
+      darkMode: # Настраиваем темную тему аналогично
+        light: "#09090b"
+        lightgray: "#27272a"
+        gray: "#a1a1aa"
+        darkgray: "#e4e4e7"
+        dark: "#ffffff"
+        secondary: "#3b82f6"
+        tertiary: "#93c5fd"
+        highlight: "rgba(59, 130, 246, 0.2)"
         textHighlight: "#b3aa0288"
 
 plugins:
   - source: "@quartz-community/created-modified-date"
-    enabled: true
+    enabled: false
     options:
       defaultDateType: modified
       priority:
-        - filesystem
         - frontmatter
         - git
+        - filesystem
     order: 10
   - source: "@quartz-community/syntax-highlighting"
     enabled: true
@@ -160,10 +159,11 @@ plugins:
   - source: "@quartz-community/tag-page"
     enabled: true
   - source: "@quartz-community/explorer"
-    enabled: false
+    enabled: true
     layout:
       position: left
       priority: 50
+      display: desktop-only
   - source: "@quartz-community/graph"
     enabled: false
     layout:
@@ -171,14 +171,16 @@ plugins:
       priority: 10
   - source: "@quartz-community/search"
     enabled: true
+    options:
+      searchInBody: true
     layout:
-      position: left
+      position: beforeBody
       priority: 20
       group: toolbar
       groupOptions:
         grow: true
   - source: "@quartz-community/backlinks"
-    enabled: true
+    enabled: false
     layout:
       position: right
       priority: 50
@@ -188,12 +190,12 @@ plugins:
       position: beforeBody
       priority: 10
   - source: "@quartz-community/content-meta"
-    enabled: true
+    enabled: false
     layout:
       position: beforeBody
       priority: 20
   - source: "@quartz-community/tag-list"
-    enabled: true
+    enabled: false
     layout:
       position: beforeBody
       priority: 30
@@ -238,16 +240,7 @@ plugins:
       position: footer
       priority: 50
   - source: "@quartz-community/recent-notes"
-    enabled: true
-    options:
-      title: "📦 Вся игротека клуба"
-      total: 50
-      linkToMore: false
-      showImages: true
-      # 🔥 Исправленный синтаксис фильтрации для Quartz 5:
-    layout:
-      position: beforeBody
-      priority: 40
+    enabled: false
   - source: "@quartz-community/spacer"
     enabled: true
     options: {}
@@ -281,7 +274,7 @@ plugins:
     enabled: true
     options:
       enableInteraction: true
-      darkMode: auto
+      darkMode: left
       exportPadding: 20
     order: 50
 layout:
@@ -297,22 +290,23 @@ layout:
         left: []
         right: []
     content:
-      template: "full-width" # 🔥 Растягиваем контент на всю ширину
       positions:
-        beforeBody: []
-        left: []             # Оставляем пустыми, Quartz сам отцентрирует
-        right: []
+        left: []   # 🧹 Очищаем левый сайдбар для страниц игр
+        right: []  # 🧹 Очищаем правый сайдбар для страниц игр
     folder:
-      template: "full-width"
       exclude:
         - reader-mode
       positions:
         right: []
+        left: []
     tag:
-      template: "full-width"
       exclude:
         - reader-mode
       positions:
         right: []
+        left: []
     canvas: {}
-    bases: {}
+    bases: 
+      positions:
+        left: []   # 🧹 Очищаем левый сайдбар для страниц игр
+        right: []  # 🧹 Очищаем правый сайдбар для страниц игр

@@ -1,0 +1,9 @@
+views:
+  - type: cards
+    name: представление 2
+    order:
+      - file.name
+      - tags
+      - description
+    image: note.image_url
+    imageAspectRatio: 1
