@@ -15,31 +15,43 @@ layout: layout
     <span class="tile-desc">Правила за 5 минут, идеальны для новичков</span>
   </a>
 
-  <a href="tags/нас-много" class="quick-tile tile-many">
+  <a href="base/нас-много.base" class="quick-tile tile-many">
     <span class="tile-icon">🎲</span>
     <span class="tile-title">Нас много (6+)</span>
     <span class="tile-desc">Для больших компаний и пати-геймов</span>
   </a>
 
-  <a href="tags/посмеяться" class="quick-tile tile-fun">
+  <a href="base/посмеяться.base" class="quick-tile tile-fun">
     <span class="tile-icon">🎭</span>
     <span class="tile-title">Посмеяться</span>
     <span class="tile-desc">Веселые, простые игры для настроения</span>
   </a>
 
-  <a href="tags/быстрые-партии" class="quick-tile tile-fast">
+  <a href="base/быстрые-партии.base" class="quick-tile tile-fast">
     <span class="tile-icon">⏱️</span>
     <span class="tile-title">Быстрые партии</span>
     <span class="tile-desc">Игры на 15–30 минут, когда мало времени</span>
   </a>
 
-  <a href="tags/подумать" class="quick-tile tile-smart">
+  <a href="base/подумать.base" class="quick-tile tile-smart">
     <span class="tile-icon">🧠</span>
     <span class="tile-title">Хотим подумать</span>
     <span class="tile-desc">Для пар и компаний, любящих стратегии</span>
   </a>
 
-  <a href="all-games" class="quick-tile tile-all">
+  <a href="base/самые-популярные.base" class="quick-tile tile-easy">
+    <span class="tile-icon">⭐</span>
+    <span class="tile-title">самые популярные</span>
+    <span class="tile-desc">Игры в которые активно все рубятся в клубе</span>
+  </a>
+
+  <a href="all-tags" class="quick-tile tile-all">
+    <span class="tile-icon">📃</span>
+    <span class="tile-title">Все теги (А-Я)</span>
+    <span class="tile-desc">Все теги для поиска любых игр</span>
+  </a>
+
+  <a href="base/all-games.base" class="quick-tile tile-all">
     <span class="tile-icon">📦</span>
     <span class="tile-title">Все игры (А-Я)</span>
     <span class="tile-desc">Полный каталог настолок нашего клуба</span>

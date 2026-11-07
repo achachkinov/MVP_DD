@@ -158,6 +158,12 @@ plugins:
     enabled: true
   - source: "@quartz-community/tag-page"
     enabled: true
+    options:
+      view: "cards"            # Включаем плиточный вид (карточки) для всех тегов
+      showCover: true          # Принудительно вытягиваем картинку из frontmatter
+      groupBy: "none"          # Выводим сплошной сеткой
+      maxLinesDescription: 3   # Ограничиваем описание тремя строками
+      numPages: 20             # Лимит элементов на одной странице
   - source: "@quartz-community/explorer"
     enabled: true
     layout:

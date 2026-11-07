@@ -1,57 +1,67 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
-// Автоматическая сетка карточек Quartz 5
-// Стилизация автоматической галереи Bases в Quartz 5
-// Стилизация автоматической страницы папки в Quartz 5
-// Мобильная оптимизация для не-
+// ==========================================
+// 1. ГЛАВНАЯ СТРАНИЦА И ОБЩИЙ СБРОС
+// ==========================================
 
-
-// Полная зачистка и плиточный макет для списков игр (теги и каталоги)
+// Скрываем метаданные на главной странице
 body[data-slug="index"] .content-meta {
-  display: none !important;
+  display: none;
 }
 
+// Баннер приветствия настольного клуба
+.welcome-banner {
+  text-align: center;
+  margin-bottom: 2rem;
+  
+  h2 { 
+    margin-bottom: 0.5rem; 
+  }
+  p { 
+    color: var(--gray); 
+    font-size: 0.95rem; 
+    line-height: 1.4; 
+  }
+}
+
+// ==========================================
+// 2. МОБИЛЬНАЯ ОПТИМИЗАЦИЯ (АДАПТИВ)
+// ==========================================
 @media (max-width: 768px) {
-  // Полностью скрываем боковую панель проводника (Explorer)
+  // ПРИМЕЧАНИЕ: Сайдбары и граф лучше отключить в quartz.layout.ts!
+  // Но для страховки оставляем мягкое скрытие без грубого !important
   .sidebar.left, 
   .sidebar.right,
   .graph, 
   .toc, 
   #backlinks {
-    display: none !important;
+    display: none;
   }
 
-  // Растягиваем контент на всю ширину экрана смартфона
+  // Расширяем контентную область на смартфонах
   .center, .page {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 0 1rem !important;
+    padding: 0 1rem;
   }
 
-  // Делаем строку поиска акцентной и крупной
+  // Крупная и удобная строка поиска для пальцев
   .search {
     width: 100% !important;
-    margin: 1.5rem 0 !important;
+    margin: 1.5rem 0;
     
     & input {
-      font-size: 1.1rem !important;
-      padding: 0.8rem 1rem !important;
-      border: 2px solid var(--accent) !important;
-      border-radius: 8px !important;
+      font-size: 1.1rem;
+      padding: 0.8rem 1rem;
+      border: 2px solid var(--accent);
+      border-radius: 8px;
     }
   }
 }
 
-// Стилизация плиток быстрого реагирования на главной
-.welcome-banner {
-  text-align: center;
-  margin-bottom: 2rem;
-  
-  h2 { margin-bottom: 0.5rem; }
-  p { color: var(--gray); font-size: 0.95rem; line-height: 1.4; }
-}
-
+// ==========================================
+// 3. СЕТКА БЫСТРЫХ ПЛИТОК (МЕНЮ КЛУБА)
+// ==========================================
 .quick-tiles-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -66,13 +76,14 @@ body[data-slug="index"] .content-meta {
   border-radius: 12px;
   background-color: var(--light);
   border: 1px solid var(--lightgray);
-  text-decoration: none !important;
+  text-decoration: none;
   transition: transform 0.2s ease, border-color 0.2s ease;
   -webkit-tap-highlight-color: transparent;
 
   &:hover {
     transform: translateY(-2px);
     border-color: var(--accent);
+    text-decoration: none;
   }
 
   .tile-icon {
@@ -88,77 +99,18 @@ body[data-slug="index"] .content-meta {
   }
 
   .tile-desc {
-    font-size: 0.95rem !important; // Увеличили с 0.85
-    color: var(--darkgray) !important; // Сделали текст темнее и контрастнее
+    font-size: 0.95rem;
+    color: var(--darkgray);
     line-height: 1.3;
     margin-top: 0.25rem;
   }
-
 }
 
-// Специфические элементы карточки игры для новичков
-.game-express-info {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
-  margin: 1rem 0;
-}
+// ==========================================
+// 4. КАРТОЧКА НАСТОЛЬНОЙ ИГРЫ (ОБЗОР)
+// ==========================================
 
-.info-badge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 0.5rem;
-  border-radius: 8px;
-  text-align: center;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #ffffff !important;
-
-  span:first-child { font-size: 1.4rem; margin-bottom: 0.2rem; }
-  span:last-child { font-size: 0.85rem; font-weight: bold; }
-}
-
-// Цветовое кодирование сложности (соответствует наклейкам на коробках)
-.bg-easy { background-color: #2e7d32 !important; }   // Зеленый
-.bg-medium { background-color: #f57f17 !important; } // Желтый/Оранжевый
-.bg-hard { background-color: #c62828 !important; }   // Красный
-
-// Кнопки быстрого действия на карточке игры
-.action-buttons-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin: 1.5rem 0;
-}
-
-.action-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 1rem;
-  border-radius: 8px;
-  font-weight: bold;
-  text-decoration: none !important;
-  font-size: 1.05rem;
-  text-align: center;
-}
-
-.btn-video {
-  background-color: #e50914;
-  color: white !important;
-}
-
-.btn-location {
-  background-color: var(--light);
-  color: var(--dark) !important;
-  border: 2px dashed var(--accent);
-  
-  strong { color: var(--accent); font-size: 1.2rem; margin-left: 0.2rem; }
-}
-
+// Обложка игры
 .game-cover-container {
   width: 100%;
   max-height: 300px;
@@ -177,6 +129,76 @@ body[data-slug="index"] .content-meta {
   }
 }
 
+// Быстрые параметры: Сложность, Время, Игроки
+.game-express-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.info-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 0.5rem;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #ffffff; // Белый текст гарантирован для контраста на цветном фоне
+
+  span:first-child { font-size: 1.4rem; margin-bottom: 0.2rem; }
+  span:last-child { font-size: 0.85rem; font-weight: bold; }
+}
+
+// Цвета сложности (используем мягкие клубные оттенки)
+.bg-easy { background-color: #2e7d32; }
+.bg-medium { background-color: #f57f17; }
+.bg-hard { background-color: #c62828; }
+
+// Группа кнопок (Смотреть правила / Забронировать стол)
+.action-buttons-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.05rem;
+  text-align: center;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.9;
+    text-decoration: none;
+  }
+}
+
+.btn-video {
+  background-color: #e50914;
+  color: white;
+}
+
+.btn-location {
+  background-color: var(--light);
+  color: var(--dark);
+  border: 2px dashed var(--accent);
+  
+  strong { color: var(--accent); font-size: 1.2rem; margin-left: 0.2rem; }
+}
+
+// Контейнер для YouTube/Rutube правил игры (Responsive 16:9)
 .video-container {
   position: relative;
   padding-bottom: 56.25%;
@@ -192,5 +214,115 @@ body[data-slug="index"] .content-meta {
     width: 100%;
     height: 100%;
     border: 0;
+  }
+}
+
+// ==========================================
+// 5. КАТАЛОГ БАЗ (ПЛИТОЧНЫЙ ВИД) — OPTIMIZED FOR QUARTZ 5
+// ==========================================
+
+/* 1. РОДИТЕЛЬСКИЙ КОНТЕЙНЕР СЕТКИ */
+// На скриншоте у вас <div class="bases-cards">, который вложен в wrapper.
+// Делаем сетку современной, гибкой и адаптивной без жесткого дублирования grid-template.
+.bases-cards-wrapper {
+  width: 100% !important;
+  display: block !important; // Сбрасываем возможные конфликты Quartz
+}
+
+.bases-cards {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
+  margin: 1rem 0 !important;
+  padding: 0 !important;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 2. СТИЛИЗАЦИЯ ССЫЛКИ-КАРТОЧКИ */
+a.internal-link-bases-card,
+a[class*="internal-link-bases-card"] {
+  display: flex !important;
+  flex-direction: column !important;
+  background: var(--light) !important;
+  border: 1px solid var(--lightgray) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+  text-decoration: none !important;
+  color: var(--dark) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+
+  &:hover {
+    transform: translateY(-4px) !important;
+    border-color: var(--accent) !important;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05) !important;
+    text-decoration: none !important;
+  }
+}
+
+/* 3. ФИКС ОТОБРАЖЕНИЯ ОБЛОЖКИ (ТАК КАК НЕТ ТЕГА IMG) */
+div.bases-card-image {
+  width: 100% !important;
+  height: 180px !important; // Фиксируем высоту контейнера
+  background-size: cover !important; // Если картинка фоном
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  border-bottom: 1px solid var(--lightgray) !important;
+  
+  // На случай, если элемент рендерится как стандартный img (для страховки)
+  img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+}
+
+/* 4. ТЕЛО КАРТОЧКИ И ВНУТРЕННИЕ СТРОКИ */
+div.bases-card-body {
+  padding: 1.2rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.6rem !important;
+}
+
+span.bases-card-title {
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: var(--dark) !important;
+  margin-bottom: 0.25rem !important;
+  display: block !important;
+}
+
+/* Внутренние строки структуры метаданных */
+div.bases-card-row {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.2rem !important;
+  font-size: 0.9rem !important;
+  line-height: 1.4 !important;
+
+  span.bases-card-label {
+    font-weight: bold !important;
+    color: var(--gray) !important;
+    text-transform: uppercase !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.5px !important;
+  }
+}
+
+/* 5. ФИКС ОГРАНИЧЕНИЯ ДЛИНЫ ТЕКСТА (ДЛЯ DESCRIPTION) */
+// Применяем троеточие строго к текстовому блоку внутри строки описания
+div.bases-card-row {
+  span.bases-text {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important; 
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    color: var(--darkgray) !important;
   }
 }
