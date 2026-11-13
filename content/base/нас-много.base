@@ -6,7 +6,7 @@ views:
     name: представление 2
     filters:
       and:
-        - file.tags.contains("нас-много")
+        - file.tags.contains("компания-6-плюс")
     order:
       - file.name
       - tags

@@ -1,0 +1,16 @@
+filters:
+  and:
+    - type.contains("game")
+views:
+  - type: cards
+    name: представление 2
+    filters:
+      and:
+        - file.tags.contains("ассоциации")
+    order:
+      - file.name
+      - tags
+      - description
+    image: note.image_url
+    imageAspectRatio: 1
+    cardSize: 250
