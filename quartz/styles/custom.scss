@@ -332,12 +332,12 @@ article {
 // Переопределяем акцентные цвета для светлой и темной тем поверх всех плагинов
 :root[saved-theme="light"],
 body.theme-light {
-  --secondary: #37a4fd !important;          // Сочный лазурно-голубой
-  --tertiary: #0284c7 !important;           // Насыщенный глубокий голубой при наведении
+  --secondary: #FF6600 !important;          // Сочный лазурно-голубой
+  --tertiary: #FF6600 !important;           // Насыщенный глубокий голубой при наведении
 }
 
 :root[saved-theme="dark"],
 body.theme-dark {
-  --secondary: #38bdf8 !important;          // Яркий неоново-голубой для темной темы
-  --tertiary: #7dd3fc !important;
+  --secondary: #FF6600 !important;          // Яркий неоново-голубой для темной темы
+  --tertiary: #FF6600 !important;
 }
