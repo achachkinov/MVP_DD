@@ -26,8 +26,8 @@ configuration:
         gray: "#71717a"        # Доступный для чтения серый 
         darkgray: "#27272a"    # Почти черный цвет основного текста
         dark: "#09090b"        # Жирные заголовки
-        secondary: "#2563eb"   # Яркий синий цвет ссылок и кнопок
-        tertiary: "#60a5fa"    
+        secondary: "#0D9488"   # Яркий синий цвет ссылок и кнопок
+        tertiary: "#0F766E"    
         highlight: "rgba(37, 99, 235, 0.15)"
         textHighlight: "#b3aa0288"
       darkMode: # Настраиваем темную тему аналогично
@@ -36,8 +36,8 @@ configuration:
         gray: "#a1a1aa"
         darkgray: "#e4e4e7"
         dark: "#ffffff"
-        secondary: "#3b82f6"
-        tertiary: "#93c5fd"
+        secondary: "#0D9488"
+        tertiary: "#0F766E"
         highlight: "rgba(59, 130, 246, 0.2)"
         textHighlight: "#b3aa0288"
 
