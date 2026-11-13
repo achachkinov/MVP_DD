@@ -166,9 +166,9 @@ article {
   .callout[data-callout="cover"] {
     display: flex;
     justify-content: center;
-    background-color: var(--lightgray);
-    border-radius: 12px;
-    padding: 1.5rem;
+    background-color: var(--light);
+    border-radius: 0px;
+    padding: 0px;
 
     img {
       max-height: 320px;
@@ -180,32 +180,79 @@ article {
   }
 
   // 2. Плашки характеристик [!badges]
-  .callout[data-callout="badges"] > .callout-content > ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    // Общие стили для всех плашек [data-callout="badge-..."]
 
-    > li {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.4rem 0.85rem;
-      border-radius: 8px;
+  .callout[data-callout="badges"] {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0 0 0.75rem 0;
+
+    > .callout-title {
+      display: none;
+    }
+
+    > .callout-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 0.6rem;
+    }
+  }
+
+  
+  .callout[data-callout^="badge-"] {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.9rem 0.75rem;
+    margin: 0 0.5rem 0.75rem 0; // Отступы справа и снизу для аккуратного переноса
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid transparent;
+
+    // Убираем стандартную иконку и внутренние отступы callout
+    .callout-icon {
+      display: none;
+    }
+
+    .callout-title {
+      padding: 0;
+      gap: 0;
+    }
+
+    .callout-title-inner {
+      font-size: 20px;
+      line-height: 1.2;
+      margin-bottom: 0.35rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .callout-content p {
+      margin: 0;
+      color: #ffffff;
       font-size: 0.9rem;
       font-weight: 600;
-      background-color: var(--lightgray);
-      color: var(--dark);
-      border: 1px solid var(--gray);
-
-      // Подсветка плашки сложности (третий элемент списка)
-      &:last-child {
-        background-color: var(--highlight);
-        border-color: var(--secondary);
-      }
+      line-height: 1.2;
     }
+
+  }
+
+  // Цветовые модификаторы
+  .callout[data-callout="badge-green"] {
+    background-color: #27ae60;
+    border-color: #219653;
+  }
+
+  .callout[data-callout="badge-orange"] {
+    background-color: #f2790c;
+    border-color: #d96b08;
+  }
+
+  .callout[data-callout="badge-red"] {
+    background-color: #c92a2a;
+    border-color: #a61e1e;
   }
 
   // 3. Кнопки действий [!actions]
