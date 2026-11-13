@@ -144,3 +144,129 @@ article {
     }
   }
 }
+
+
+
+article {
+  // Общий сброс стандартного оформления для кастомных блоков
+  .callout[data-callout="cover"],
+  .callout[data-callout="badges"],
+  .callout[data-callout="actions"] {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0 0 1.25rem 0;
+
+    > .callout-title {
+      display: none;
+    }
+  }
+
+  // 1. Обложка игры [!cover]
+  .callout[data-callout="cover"] {
+    display: flex;
+    justify-content: center;
+    background-color: var(--lightgray);
+    border-radius: 12px;
+    padding: 1.5rem;
+
+    img {
+      max-height: 320px;
+      width: auto;
+      object-fit: contain;
+      margin: 0;
+      border-radius: 8px;
+    }
+  }
+
+  // 2. Плашки характеристик [!badges]
+  .callout[data-callout="badges"] > .callout-content > ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    > li {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background-color: var(--lightgray);
+      color: var(--dark);
+      border: 1px solid var(--gray);
+
+      // Подсветка плашки сложности (третий элемент списка)
+      &:last-child {
+        background-color: var(--highlight);
+        border-color: var(--secondary);
+      }
+    }
+  }
+
+  // 3. Кнопки действий [!actions]
+  .callout[data-callout="actions"] > .callout-content > ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.75rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    > li {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+      font-weight: 500;
+      text-align: center;
+      background-color: var(--light);
+      border: 1px solid var(--gray);
+      color: var(--dark);
+
+      // Если внутри пункта есть ссылка (кнопка видео) — красим в акцентный цвет
+      &:has(a) {
+        background-color: var(--secondary);
+        border-color: var(--secondary);
+        color: var(--light);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+          opacity: 0.9;
+          transform: translateY(-2px);
+        }
+
+        a {
+          color: var(--light);
+          text-decoration: none;
+          background: none;
+          font-weight: 600;
+
+          // Делаем кликабельной всю кнопку целиком
+          &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+          }
+        }
+      }
+    }
+  }
+
+  // 4. Адаптивное видео YouTube на всю ширину статьи
+  iframe[src*="youtube.com"],
+  iframe[src*="youtu.be"] {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border-radius: 12px;
+    border: none;
+  }
+}
