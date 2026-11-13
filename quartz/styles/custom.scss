@@ -271,7 +271,7 @@ article {
       justify-content: center;
       gap: 0.4rem;
       padding: 0.85rem 1rem;
-      border-radius: 10px;
+      border-radius: 0px;
       font-weight: 500;
       text-align: center;
       background-color: var(--light);
@@ -286,8 +286,8 @@ article {
         transition: opacity 0.2s ease, transform 0.2s ease;
 
         &:hover {
+          background-color: var(--tertiary);
           opacity: 0.9;
-          transform: translateY(-2px);
         }
 
         a {
@@ -307,6 +307,13 @@ article {
     }
   }
 
+  a.tag-link {
+    display: inline-flex !important;
+    align-items: center;
+    width: fit-content;
+    margin: 0.2rem 0.35rem 0.2rem 0;
+  }
+
   // 4. Адаптивное видео YouTube на всю ширину статьи
   iframe[src*="youtube.com"],
   iframe[src*="youtu.be"] {
@@ -316,4 +323,8 @@ article {
     border-radius: 12px;
     border: none;
   }
+}
+
+body a.internal-link.internal-link {
+  background-color: var(--light);
 }
