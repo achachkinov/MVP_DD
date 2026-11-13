@@ -314,6 +314,10 @@ article {
     margin: 0.2rem 0.35rem 0.2rem 0;
   }
 
+  a.internal-link.internal-link {
+  background-color: var(--light);
+}
+
   // 4. Адаптивное видео YouTube на всю ширину статьи
   iframe[src*="youtube.com"],
   iframe[src*="youtu.be"] {
@@ -323,8 +327,4 @@ article {
     border-radius: 12px;
     border: none;
   }
-}
-
-body a.internal-link.internal-link {
-  background-color: var(--light);
 }
