@@ -33,10 +33,14 @@
     margin-top: 6px;
   }
 
+  .bases-list {
+    display: block;
+  }
+
   // 2. Обрезаем длинный текст (Description и теги) с троеточием
   .bases-card-value {
     display: -webkit-box;
-    -webkit-line-clamp: 1; // Количество видимых строк (можешь поменять на 2 или 4)
+    -webkit-line-clamp: 3; // Количество видимых строк (можешь поменять на 2 или 4)
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -47,6 +51,7 @@
   .bases-card-row {
     gap: 0.5rem;
     align-items: baseline;
+    display: block;
   }
 }
 
