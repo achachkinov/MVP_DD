@@ -6,31 +6,50 @@
 
 // Стилизация элементов внутри страниц .base и встроенных блоков ![[file.base]]
 .bases-view {
-  // Пример: делаем карточки игр более выразительными
+  // 1. Запрещаем одиночной карточке растягиваться на всю ширину
+  // !important нужен, чтобы перебить инлайновый style="..." от плагина
+  .bases-cards {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)) !important;
+    gap: 1.25rem;
+  }
+
+  // Делаем саму карточку аккуратнее (опционально)
   .bases-card {
-    background-color: var(--light);
+    background-color: var(--secondary);
     border: 1px solid var(--lightgray);
-    border-radius: 12px;
-    padding: 1rem;
+    border-radius: 0px;
+    overflow: hidden;
     transition: transform 0.2s ease, border-color 0.2s ease;
 
     &:hover {
-      transform: translateY(-2px);
       border-color: var(--secondary);
+      background-color: var(--tertiary);
     }
   }
 
-  // Пример: аккуратные отступы в табличном виде
-  table {
-    width: 100%;
-    border-collapse: collapse;
+  .bases-card-image {
+    background-color: var(--secondary);
+    margin: 4px;
+    margin-top: 6px;
+  }
 
-    th, td {
-      padding: 0.75rem;
-      border-bottom: 1px solid var(--lightgray);
-    }
+  // 2. Обрезаем длинный текст (Description и теги) с троеточием
+  .bases-card-value {
+    display: -webkit-box;
+    -webkit-line-clamp: 1; // Количество видимых строк (можешь поменять на 2 или 4)
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4;
+  }
+
+  // 3. Небольшой фикс отступа между "Description" и самим текстом (на скрине они слиплись)
+  .bases-card-row {
+    gap: 0.5rem;
+    align-items: baseline;
   }
 }
+
 
 
 
