@@ -9,9 +9,27 @@
   // 1. Запрещаем одиночной карточке растягиваться на всю ширину
   // !important нужен, чтобы перебить инлайновый style="..." от плагина
   .bases-cards {
+    // На широких экранах (ПК и планшеты) — адаптивная сетка по 240px
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)) !important;
     gap: 1.25rem;
+
+    // На мобильных экранах (меньше 600px) — жестко 2 колонки и меньше отступы
+    @media (max-width: 600px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 0.65rem;
+    }
   }
+
+  @media (max-width: 600px) {
+    .bases-card {
+      font-size: 0.85rem;
+    }
+    .bases-card-body {
+      padding: 0.5rem;
+    }
+  }
+
+
 
   // Делаем саму карточку аккуратнее (опционально)
   .bases-card {
@@ -329,15 +347,54 @@ article {
   }
 }
 
-// Переопределяем акцентные цвета для светлой и темной тем поверх всех плагинов
+// Настройка цветов поверх плагина @quartz-themes/core
 :root[saved-theme="light"],
 body.theme-light {
-  --secondary: #FF6600 !important;          // Сочный лазурно-голубой
-  --tertiary: #FF6600 !important;           // Насыщенный глубокий голубой при наведении
+  --secondary: #232323 !important;              // Например, сочный оранжевый (или #0284c7 для голубого)
+  --tertiary: #090909 !important;
+  // --darkgray: #cccccc !important;
+  // --dark: #eeeeee;
+  --gray: #999999;
+  --callout-title-color:var(--tertiary);
 }
 
 :root[saved-theme="dark"],
 body.theme-dark {
-  --secondary: #FF6600 !important;          // Яркий неоново-голубой для темной темы
-  --tertiary: #FF6600 !important;
+  --secondary: #ff6600 !important;              // Например, сочный оранжевый (или #0284c7 для голубого)
+  --tertiary: #b95118 !important;
+  --dark: #ffffff;
+  --darkgray: #f3f3f3;
+  --gray: #dadada;
+  --text-normal: #f3f3f3;
+}
+
+:root[saved-theme="light"] {
+  .callout[data-callout="tiles"] > .callout-content > ul > li {
+    color: #eeeeee;
+
+    a.internal {
+      color: #ffffff !important;
+    }
+  }
+}
+
+:root[saved-theme="light"] {
+  .bases-card {
+    color: #eeeeee;
+
+    // Заголовок игры (Битва магов, Бункер и т.д.)
+    a, .bases-card-title {
+      color: #ffffff !important;
+    }
+
+    // Подписи полей (Tags, Description)
+    .bases-card-label {
+      color: #999999 !important;
+    }
+
+    // Значения полей (сами теги и текст описания)
+    .bases-card-value {
+      color: #cccccc !important;
+    }
+  }
 }

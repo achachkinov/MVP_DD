@@ -39,4 +39,4 @@ description: Легендарная кооперативная тактичес�
 ---
 
 ### 🎬 Видео-правила
-![](https://youtube.com)
+![](https://youtu.be/Fb_PUHa1Vm0?si=6YzhuvXjdWb_YsO6)

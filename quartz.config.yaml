@@ -21,24 +21,24 @@ configuration:
       code: IBM Plex Mono
     colors:
       lightMode:
-        light: "#ffffff"       # Чисто белый фон страниц
-        lightgray: "#f4f4f5"   # Светло-серые границы плиток
-        gray: "#71717a"        # Доступный для чтения серый 
-        darkgray: "#27272a"    # Почти черный цвет основного текста
-        dark: "#09090b"        # Жирные заголовки
-        secondary: "#0D9488"   # Яркий синий цвет ссылок и кнопок
-        tertiary: "#0F766E"    
-        highlight: "rgba(37, 99, 235, 0.15)"
-        textHighlight: "#b3aa0288"
-      darkMode: # Настраиваем темную тему аналогично
-        light: "#09090b"
-        lightgray: "#27272a"
-        gray: "#a1a1aa"
-        darkgray: "#e4e4e7"
-        dark: "#ffffff"
-        secondary: "#0D9488"
-        tertiary: "#0F766E"
-        highlight: "rgba(59, 130, 246, 0.2)"
+        light: "#faf8f8"
+        lightgray: "#e5e5e5"
+        gray: "#b8b8b8"
+        darkgray: "#4e4e4e"
+        dark: "#2b2b2b"
+        secondary: "#222222"
+        tertiary: "#111111"
+        highlight: rgba(143, 159, 169, 0.15)
+        textHighlight: "#fff23688"
+      darkMode:
+        light: "#161618"
+        lightgray: "#393639"
+        gray: "#646464"
+        darkgray: "#d4d4d4"
+        dark: "#ebebec"
+        secondary: "#7b97aa"
+        tertiary: "#84a59d"
+        highlight: rgba(143, 159, 169, 0.15)
         textHighlight: "#b3aa0288"
 
 plugins:
@@ -243,7 +243,7 @@ plugins:
         GitHub: https://github.com/jackyzha0/quartz
         Discord Community: https://discord.gg/cRFFHYye7t
     layout:
-      position: footer
+      position: afterBody
       priority: 50
   - source: "@quartz-community/recent-notes"
     enabled: false
